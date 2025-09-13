@@ -1,5 +1,5 @@
 # Cull Less Leaves Legacy
-This is a backport of isXander's CullLessLeaves mod to Minecraft 1.12.2, licensed under the LGPL 3.0 license.
+This is a backport of isXander's [Cull Less Leaves](https://github.com/isXander/CullLessLeaves) mod to Minecraft 1.12.2, licensed under the LGPL 3.0 license.
 
 ## Description
 Cull Less Leaves Legacy improves performance by skipping the rendering of inner leaf layers. This can provide a significant performance boost, especially on lower-end hardware, with performance increase in visually dense areas like Twilight Forest(hopefully).
