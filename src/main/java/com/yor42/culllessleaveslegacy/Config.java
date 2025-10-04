@@ -1,7 +1,13 @@
 package com.yor42.culllessleaveslegacy;
 
+import com.cleanroommc.configanytime.ConfigAnytime;
+
 @net.minecraftforge.common.config.Config(modid = Tags.MOD_ID, name = Tags.MOD_NAME)
 public class Config {
+
+    static {
+        ConfigAnytime.register(Config.class);
+    }
 
     @net.minecraftforge.common.config.Config.RangeInt(min = 0)
     @net.minecraftforge.common.config.Config.Comment("Maximum depth of visible leaves")

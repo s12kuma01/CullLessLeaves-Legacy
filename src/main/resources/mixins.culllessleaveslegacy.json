@@ -1,14 +1,16 @@
 {
-	"package": "com.yor42.culllessleaveslegacy.mixin",
-	"required": true,
-	"refmap": "mixins.culllessleaveslegacy.refmap.json",
-	"target": "@env(DEFAULT)",
-	"minVersion": "0.8.5",
-	"compatibilityLevel": "JAVA_8",
-	"mixins": [],
-	"server": [],
-	"client": [
-      "MixinLeaves",
-      "MixinBlock"
-	]
+  "package": "com.yor42.culllessleaveslegacy.mixin",
+  "required": true,
+  "refmap": "mixins.culllessleaveslegacy.refmap.json",
+  "target": "@env(DEFAULT)",
+  "minVersion": "0.8.5",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [],
+  "server": [],
+  "client": [
+    "MixinBlock",
+    "MixinGuiOptionsRowList",
+    "MixinGuiVideoSetting",
+    "MixinLeaves"
+  ]
 }
