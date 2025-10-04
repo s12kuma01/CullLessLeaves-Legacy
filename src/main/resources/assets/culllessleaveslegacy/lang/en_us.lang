@@ -1,2 +1,23 @@
 cll.option.depth=Leaves Culling Depth
 cll.option.randomrejection=Leaves Culling Random Rejection Chance
+
+# Celeritas GUI Integration
+culllessleaves.option.page.title=Leaf Culling
+
+# Main Options
+culllessleaves.option.enabled=Enable Leaf Culling
+culllessleaves.option.enabled.tooltip=If enabled, leaf culling will be applied.
+
+# Preset Options
+culllessleaves.option.preset=Culling Preset
+culllessleaves.option.preset.tooltip=Choose a preset for leaf culling. Custom allows manual configuration.
+culllessleaves.option.preset.fast=Fast
+culllessleaves.option.preset.balanced=Balanced
+culllessleaves.option.preset.fancy=Fancy
+culllessleaves.option.preset.custom=Custom
+
+# Custom Settings
+culllessleaves.option.depth=Culling Depth
+culllessleaves.option.depth.tooltip=Controls how many layers of leaves are checked for culling. Higher values = more aggressive culling.
+culllessleaves.option.randomRejection=Random Display Rate
+culllessleaves.option.randomRejection.tooltip=Chance of randomly showing a leaf face to add visual variety. Lower values = more culling.
