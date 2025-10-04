@@ -18,6 +18,6 @@ public class MixinLeaves implements Icullable {
     @Override
     @Unique
     public boolean cll$shouldCullSide(IBlockState state, IBlockAccess access, BlockPos pos, EnumFacing facing) {
-        return  (Main.shouldCullSide(Compat.isFancyLeaves() ? Config.depth : 1, pos, access, facing, (block) -> block instanceof BlockLeaves));
+        return  (Main.shouldCullSide(Compat.isFancyLeaves() ? Config.getEffectiveDepth() : 1, pos, access, facing, (block) -> block instanceof BlockLeaves));
     }
 }

@@ -1,0 +1,23 @@
+cll.option.depth=カリング深度
+cll.option.randomrejection=カリングのランダム拒否確率
+
+# Celeritas GUI統合
+culllessleaves.option.page.title=葉のカリング
+
+# メインオプション
+culllessleaves.option.enabled=葉のカリングを有効化
+culllessleaves.option.enabled.tooltip=有効にすると、葉のカリングが適用されます。
+
+# プリセットオプション
+culllessleaves.option.preset=カリングプリセット
+culllessleaves.option.preset.tooltip=葉のカリングのプリセットを選択してください。カスタムは手動設定を許可します。
+culllessleaves.option.preset.fast=高速
+culllessleaves.option.preset.balanced=バランス
+culllessleaves.option.preset.fancy=きれい
+culllessleaves.option.preset.custom=カスタム
+
+# カスタム設定
+culllessleaves.option.depth=カリングの深度
+culllessleaves.option.depth.tooltip=カリングのためにチェックする葉のレイヤー数を制御します。高い値 = より積極的なカリング。
+culllessleaves.option.randomRejection=ランダム表示率
+culllessleaves.option.randomRejection.tooltip=視覚的な多様性を追加するために葉の面をランダムに表示する確率です。低い値 = より多くのカリング。
