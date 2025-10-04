@@ -1,7 +1,7 @@
 package com.yor42.culllessleaveslegacy.gui;
 
 import com.google.common.collect.ImmutableList;
-import com.yor42.culllessleaveslegacy.CullLessLeavesConfig;
+import com.yor42.culllessleaveslegacy.Config;
 import net.minecraft.client.resources.I18n;
 import org.embeddedt.embeddium.impl.gui.framework.TextComponent;
 import org.taumc.celeritas.api.options.OptionIdentifier;
@@ -35,8 +35,8 @@ public class CullLessLeavesOptionPages {
                         .setName(TextComponent.literal(I18n.format("culllessleaves.option.enabled")))
                         .setTooltip(TextComponent.literal(I18n.format("culllessleaves.option.enabled.tooltip")))
                         .setControl(TickBoxControl::new)
-                        .setBinding((opts, value) -> opts.enabled = value,
-                                   opts -> opts.enabled)
+                        .setBinding((opts, value) -> Config.enabled = value,
+                                   opts -> Config.enabled)
                         .setFlags(OptionFlag.REQUIRES_RENDERER_RELOAD)
                         .build()
                 )
@@ -44,36 +44,36 @@ public class CullLessLeavesOptionPages {
 
         // Preset selection group
         groups.add(OptionGroup.createBuilder()
-                .add(OptionImpl.createBuilder(CullLessLeavesConfig.CullingPreset.class, storage)
+                .add(OptionImpl.createBuilder(Config.CullingPreset.class, storage)
                         .setName(TextComponent.literal(I18n.format("culllessleaves.option.preset")))
                         .setTooltip(TextComponent.literal(I18n.format("culllessleaves.option.preset.tooltip")))
-                        .setControl(opts -> new CyclingControl<>(opts, CullLessLeavesConfig.CullingPreset.class,
+                        .setControl(opts -> new CyclingControl<>(opts, Config.CullingPreset.class,
                                 new TextComponent[] {
                                     TextComponent.literal(I18n.format("culllessleaves.option.preset.fast")),
                                     TextComponent.literal(I18n.format("culllessleaves.option.preset.balanced")),
                                     TextComponent.literal(I18n.format("culllessleaves.option.preset.fancy")),
                                     TextComponent.literal(I18n.format("culllessleaves.option.preset.custom"))
                                 }))
-                        .setBinding((opts, value) -> opts.setPreset(value),
-                                   opts -> opts.getPreset())
+                        .setBinding((opts, value) -> Config.setPreset(value),
+                                   opts -> Config.getPreset())
                         .setFlags(OptionFlag.REQUIRES_RENDERER_RELOAD)
                         .build()
                 )
                 .build());
 
-        // Custom settings group (only visible when CUSTOM preset is selected)
+        // Custom settings group
         groups.add(OptionGroup.createBuilder()
                 .add(OptionImpl.createBuilder(int.class, storage)
                         .setName(TextComponent.literal(I18n.format("culllessleaves.option.depth")))
                         .setTooltip(TextComponent.literal(I18n.format("culllessleaves.option.depth.tooltip")))
                         .setControl(opts -> new SliderControl(opts, 0, 5, 1, ControlValueFormatter.number()))
                         .setBinding((opts, value) -> {
-                            opts.customDepth = value;
+                            Config.depth = value;
                             // Auto-switch to CUSTOM preset when manually adjusted
-                            if (opts.getPreset() != CullLessLeavesConfig.CullingPreset.CUSTOM) {
-                                opts.setPreset(CullLessLeavesConfig.CullingPreset.CUSTOM);
+                            if (Config.getPreset() != Config.CullingPreset.CUSTOM) {
+                                Config.setPreset(Config.CullingPreset.CUSTOM);
                             }
-                        }, opts -> opts.customDepth)
+                        }, opts -> Config.depth)
                         .setFlags(OptionFlag.REQUIRES_RENDERER_RELOAD)
                         .build()
                 )
@@ -82,12 +82,12 @@ public class CullLessLeavesOptionPages {
                         .setTooltip(TextComponent.literal(I18n.format("culllessleaves.option.randomRejection.tooltip")))
                         .setControl(opts -> new SliderControl(opts, 0, 50, 1, ControlValueFormatter.percentage()))
                         .setBinding((opts, value) -> {
-                            opts.customRandomRejection = value / 100.0;
+                            Config.randomRejection = value / 100.0;
                             // Auto-switch to CUSTOM preset when manually adjusted
-                            if (opts.getPreset() != CullLessLeavesConfig.CullingPreset.CUSTOM) {
-                                opts.setPreset(CullLessLeavesConfig.CullingPreset.CUSTOM);
+                            if (Config.getPreset() != Config.CullingPreset.CUSTOM) {
+                                Config.setPreset(Config.CullingPreset.CUSTOM);
                             }
-                        }, opts -> (int)(opts.customRandomRejection * 100))
+                        }, opts -> (int)(Config.randomRejection * 100))
                         .setFlags(OptionFlag.REQUIRES_RENDERER_RELOAD)
                         .build()
                 )

@@ -21,8 +21,6 @@ public class Main {
 
     public static final Logger LOGGER = LogManager.getLogger(Tags.MOD_NAME);
 
-    private static CullLessLeavesConfig CONFIG;
-
     @Mod.EventHandler
     public void construct(FMLConstructionEvent event) {
         if (Loader.isModLoaded("celeritas")) {
@@ -51,16 +49,11 @@ public class Main {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         LOGGER.info("Hello From {}!", Tags.MOD_NAME);
-        CONFIG = CullLessLeavesConfig.load(event.getSuggestedConfigurationFile().toPath().getParent().toFile());
-    }
-
-    public static CullLessLeavesConfig config() {
-        return CONFIG;
     }
 
     public static boolean shouldCullSide(int depth, BlockPos pos, IBlockAccess access, EnumFacing facing, Predicate<Block> blockCheck) {
         boolean cull = true;
-        float rejectionChance = (float) CONFIG.getEffectiveRandomRejection();
+        float rejectionChance = (float) Config.getEffectiveRandomRejection();
 
         boolean outerBlock = false;
         for (int i = 1; i <= depth; i++) {
