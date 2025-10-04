@@ -1,6 +1,5 @@
 package com.yor42.culllessleaveslegacy.mixin;
 
-import com.yor42.culllessleaveslegacy.Config;
 import com.yor42.culllessleaveslegacy.Icullable;
 import com.yor42.culllessleaveslegacy.Main;
 import com.yor42.culllessleaveslegacy.compat.Compat;
@@ -18,6 +17,6 @@ public class MixinLeaves implements Icullable {
     @Override
     @Unique
     public boolean cll$shouldCullSide(IBlockState state, IBlockAccess access, BlockPos pos, EnumFacing facing) {
-        return  (Main.shouldCullSide(Compat.isFancyLeaves() ? Config.depth : 1, pos, access, facing, (block) -> block instanceof BlockLeaves));
+        return  (Main.shouldCullSide(Compat.isFancyLeaves() ? Main.config().getEffectiveDepth() : 1, pos, access, facing, (block) -> block instanceof BlockLeaves));
     }
 }
