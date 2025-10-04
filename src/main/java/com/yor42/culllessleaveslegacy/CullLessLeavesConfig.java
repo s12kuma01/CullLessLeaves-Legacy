@@ -68,7 +68,7 @@ public class CullLessLeavesConfig {
      */
     public int getEffectiveDepth() {
         if (!enabled) return 0;
-        return preset == CullingPreset.CUSTOM ? customDepth : preset.depth;
+        return customDepth;
     }
 
     /**
@@ -76,7 +76,7 @@ public class CullLessLeavesConfig {
      */
     public double getEffectiveRandomRejection() {
         if (!enabled) return 0.0;
-        return preset == CullingPreset.CUSTOM ? customRandomRejection : preset.randomRejection;
+        return customRandomRejection;
     }
 
     public static CullLessLeavesConfig load(File configDir) {
